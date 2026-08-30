@@ -1,0 +1,13 @@
+---
+- name: Gather Cisco IOS Device Facts
+  hosts: cisco_ios
+  gather_facts: true
+  
+  tasks:
+  - name: Collect facts from the device
+    cisco.ios.ios_facts:
+      gather_subset:
+        - min
+  - name: Display device hostname and version
+    ansible.builtin.debug:
+      msg: "Hostname is {{ ansible_net_hostname }} and OS version is {{ ansible_net_version }}"
