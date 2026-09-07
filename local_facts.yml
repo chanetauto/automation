@@ -1,0 +1,9 @@
+---
+- name: Print localhost facts
+  hosts: localhost
+  gather_facts: true
+  tasks:
+    - name: Dump all gathered facts for localhost
+      ansible.builtin.debug:
+        var: ansible_facts
+

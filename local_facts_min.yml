@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Gather minimal facts
+      ansible.builtin.setup:
+        gather_subset:
+          - "min"
+
+    - name: Print minimal facts
+      ansible.builtin.debug:
+        var: ansible_facts
+

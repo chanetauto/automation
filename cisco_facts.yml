@@ -1,0 +1,27 @@
+---
+#Title of the playbook
+- name: Print Cisco Switch Facts
+  hosts: all
+  gather_facts: no
+
+#connection type for cisco devices: ssh
+  connection: network_cli
+
+#Gather facts for cisco devices
+  tasks:
+    - name: Gather IOS facts
+      cisco.ios.ios_facts:
+#gather only minimum facts not all
+        gather_subset: min
+
+#Print facts for cisco devices
+    - name: Print all gathered facts
+      ansible.builtin.debug:
+        var: ansible_facts
+
+#Print hostname and version for cisco devices
+    - name: Print specific host fact
+      ansible.builtin.debug:
+        msg: "The hostname is {{ ansible_net_hostname }} and OS version is {{ ansible_net_version }}"
+        msg: "{{ inventory_file }}"
+
