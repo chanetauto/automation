@@ -1,0 +1,21 @@
+---
+- name: Find Ansible Config File and Version
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Print ansible config file location
+      ansible.builtin.debug:
+        msg: "{{ ansible_config_file }}"
+
+    - name: Print ansible version
+      ansible.builtin.debug:
+        msg: "{{ ansible_version }}"
+
+    - name: Print ansible inventory file location
+      ansible.builtin.debug:
+        msg: "{{ inventory_file }}"
+
+    - name: Print ansible inventory directory location
+      ansible.builtin.debug:
+        msg: "{{ inventory_dir }}"
