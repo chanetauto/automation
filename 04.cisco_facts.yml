@@ -2,7 +2,7 @@
 # Title of the playbook
 - name: Print Cisco Router Facts
   hosts: routers
-  gather_facts: true
+  gather_facts: false
 
 # connection type for cisco devices: ssh
   connection: network_cli
